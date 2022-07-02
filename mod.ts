@@ -21,13 +21,6 @@ const responseJson = (res: ApiResponse, status: StatusCodeNumber) =>
 const handler: Handler = async (req) => {
   const { pathname } = new URL(req.url);
 
-  const bodyReader = await req.body?.getReader().read();
-  const decoder = new TextDecoder();
-  const body = typedJsonParse<RequestBody>(decoder.decode(bodyReader?.value));
-
-  const isApiUserId = (userId: string) =>
-    pathname === "/api" && body.user_id === userId;
-
   if (pathname === "/") {
     return new Response(
       "このAPIはAPI KEYがないと使えません。API KEYは運営者から受け取ってください",
@@ -44,6 +37,13 @@ const handler: Handler = async (req) => {
       responseInit("text/plain;charset=UTF-8", statusCode.unauthorized),
     );
   }
+
+  const bodyReader = await req.body?.getReader().read();
+  const decoder = new TextDecoder();
+  const body = typedJsonParse<RequestBody>(decoder.decode(bodyReader?.value));
+
+  const isApiUserId = (userId: string) =>
+    pathname === "/api" && body.user_id === userId;
 
   if (isApiUserId("200")) {
     return responseJson({
