@@ -4,5 +4,8 @@
   },
   "fmt": {
     "exclude": ["README.md"]
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.197.0/"
   }
 }
