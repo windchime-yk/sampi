@@ -1,7 +1,8 @@
 {
   "tasks": {
-    "dev": "deno run --allow-net --allow-env --watch=./ ./mod.ts",
-    "start": "deno run --allow-net --allow-env ./mod.ts",
-    "fmt": "deno fmt --ignore=README.md"
+    "dev": "deno run --allow-net --allow-env --watch ./mod.ts"
+  },
+  "fmt": {
+    "exclude": ["README.md"]
   }
 }
