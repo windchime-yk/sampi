@@ -6,6 +6,7 @@
     "exclude": ["README.md"]
   },
   "imports": {
-    "std/": "https://deno.land/std@0.197.0/"
+    "@std/http": "jsr:@std/http@^1.0.12",
+    "@std/media-types": "jsr:@std/media-types@^1.1.0"
   }
 }
