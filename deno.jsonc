@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -NE --watch ./main.ts"
+    "dev": "deno run --env-file -NE --watch ./main.ts"
   },
   "fmt": {
     "exclude": ["README.md"]
