@@ -88,5 +88,6 @@ const defaultHandler = () => responseNotFound;
 
 const handler = route(routes, defaultHandler);
 
-const PORT = 8080;
-Deno.serve({ port: PORT }, handler);
+export default {
+  fetch: (req) => handler(req),
+} satisfies Deno.ServeDefaultExport
